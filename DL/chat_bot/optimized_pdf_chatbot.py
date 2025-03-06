@@ -56,3 +56,9 @@ if uploaded_file is not None:
             st.write(summary)
     else:
         st.error("❌ PDF에서 텍스트를 추출하지 못했습니다.")
+
+"""
+ RateLimitError (429) 해결 방법
+오류 원인:
+OpenAI API의 요청 한도를 초과하거나(무료 사용량 소진), 유료 요금제에서 한도를 넘었을 때 발생합니다.
+"""

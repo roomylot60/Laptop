@@ -1,3 +1,75 @@
+### ✅ LLaMA 로컬 실행 방법 (OLLAMA)
+
+#### 1️⃣ Ollama 설치 (LLaMA 실행 엔진)
+📌 Ollama는 LLaMA 모델을 로컬에서 실행할 수 있도록 해주는 툴입니다.
+
+📌 Mac & Linux 설치
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+📌 Windows 설치
+Ollama 공식 사이트에서 .exe 파일을 다운로드하여 설치하세요.
+
+#### 2️⃣ LLaMA 모델 다운로드
+LLaMA 3 모델을 다운로드하려면:
+
+```bash
+ollama pull llama3
+```
+
+이 명령어를 실행하면 LLaMA 3 모델이 자동으로 다운로드됩니다.
+다른 모델을 사용하려면 예를 들어, Mistral을 다운로드할 수도 있습니다.
+
+```bash
+ollama pull mistral
+```
+
+#### 3️⃣ 터미널에서 실행해보기
+설치가 완료되었으면, 아래 명령어로 LLaMA 모델을 직접 실행할 수 있습니다.
+
+```bash
+ollama run llama3
+```
+
+그러면 LLaMA 3 모델이 실행되고, 터미널에서 대화를 나눌 수 있습니다.
+
+#### 4️⃣ Python 코드에서 사용하기
+이제 Python에서 LLaMA 모델을 사용할 수 있습니다.
+
+📌 Ollama를 Python에서 실행하는 코드
+
+```python
+import ollama
+
+response = ollama.chat(model="llama3", messages=[{"role": "user", "content": "안녕! 자기소개 해줘"}])
+print(response["message"])
+```
+
+👉 실행하면 LLaMA 모델이 질문에 답변을 생성합니다.
+
+#### 5️⃣ LangChain과 연결하기
+LangChain을 활용하면 LLaMA 모델을 더욱 쉽게 사용할 수 있습니다.
+
+📌 LangChain + Ollama 연동 코드
+
+```python
+from langchain_community.llms import Ollama
+
+llm = Ollama(model="llama3")
+
+response = llm.invoke("LLaMA 모델을 로컬에서 실행하는 방법을 설명해줘")
+print(response)
+```
+
+#### 🚀 결론
+1️⃣ Ollama 설치
+2️⃣ LLaMA 3 모델 다운로드 (ollama pull llama3)
+3️⃣ 터미널에서 직접 실행 (ollama run llama3)
+4️⃣ Python에서 실행 (ollama.chat(...))
+5️⃣ LangChain과 연동 (Ollama(model="llama3"))
+
 ### 로컬에 다운로드 받은 모델의 강화학습을 하는 방법
 
 로컬에서 다운로드한 모델(LLaMA 또는 기타 Transformer 모델)에 대해 **강화 학습(RL, Reinforcement Learning)**을 진행하는 것은 꽤 복잡한 작업입니다. 강화학습은 주로 행동을 선택하고 그에 대한 보상을 받는 방식으로 모델을 학습시키는 방법인데, 언어 모델을 강화학습으로 학습시키려면 몇 가지 중요한 요소를 고려해야 합니다. 주로 **PPO(Proximal Policy Optimization)**나 **A3C(Asynchronous Advantage Actor-Critic)**와 같은 알고리즘을 사용합니다.
