@@ -7,6 +7,7 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI  # 최신 버전 import 방식 변경
 
 # OpenAI API 설정
+file_name = os.path.join(os.getcwd(), 'data/openai_api.txt')
 f = open(file_name, "r")
 OPENAI_API_KEY = f.read()
 
