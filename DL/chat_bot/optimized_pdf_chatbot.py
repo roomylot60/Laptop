@@ -1,3 +1,4 @@
+import os
 import openai
 import fitz  # PyMuPDF
 import io # ByetesIO 사용
@@ -6,7 +7,8 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI  # 최신 버전 import 방식 변경
 
 # OpenAI API 설정
-OPENAI_API_KEY = "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"
+f = open(file_name, "r")
+OPENAI_API_KEY = f.read()
 
 # LLM 모델 초기화
 llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
