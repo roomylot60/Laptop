@@ -11,7 +11,7 @@ def extract_text_from_scanned_pdf(pdf_path):
     extracted_text = ""
     
     for img in images:
-        text = pytesseract.image_to_string(img, lang="kor+eng")  # 한글 + 영어 OCR
+        text = pytesseract.image_to_string(img, lang="kor")  # 한글 OCR
         extracted_text += text + "\n"
     
     return extracted_text.strip() if extracted_text else None
